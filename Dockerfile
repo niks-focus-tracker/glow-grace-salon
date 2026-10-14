@@ -1,8 +1,10 @@
 
 FROM php:8.3-cli
 
+
 RUN apt-get update && apt-get install -y \
     git unzip zip libzip-dev libsqlite3-dev \
+    libonig-dev pkg-config \
     nodejs npm \
     && docker-php-ext-install pdo_sqlite mbstring bcmath zip \
     && rm -rf /var/lib/apt/lists/*
